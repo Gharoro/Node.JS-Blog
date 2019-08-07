@@ -6,6 +6,22 @@
 
 body {
   padding-top: 54px;
+ 
+}
+
+.header{
+  background: #000000;
+  background: -webkit-linear-gradient(to bottom, #e74c3c, #000000); 
+  background: linear-gradient(to bottom, #e74c3c, #000000); 
+}
+
+.footer{
+  background: #000000;
+  background: -webkit-linear-gradient(to bottom, #e74c3c, #000000); 
+  background: linear-gradient(to bottom, #e74c3c, #000000); 
+}
+.btn {
+  background: #000000;
 }
 
 @media (min-width: 992px) {
