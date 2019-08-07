@@ -1,4 +1,3 @@
-//This file (app.js) is the server.
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -44,14 +43,13 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
+
 //Use flash
 app.use(flash());
 
 // PASSPORT
-
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 //Local variables using middleware
 app.use((req, res, next)=>{
@@ -61,8 +59,6 @@ app.use((req, res, next)=>{
     res.locals.form_errors = req.flash('form_errors');
     res.locals.error = req.flash('error');
     next();
-
-
 });
 
 //Load Routes
@@ -72,7 +68,7 @@ const posts = require('./routes/admin/posts');
 const categories = require('./routes/admin/categories');
 const comments = require('./routes/admin/comments');
 
-//Use Routes
+//Using defined routes
 app.use('/', home);
 app.use('/admin', admin);
 app.use('/admin/posts', posts);
@@ -80,13 +76,8 @@ app.use('/admin/categories', categories);
 app.use('/admin/comments', comments);
 
 
-
-
-
 const port = process.env.PORT || 4500;
 
 app.listen(port, ()=>{
 console.log(`listening on port ${port}`);
-
-
 });
