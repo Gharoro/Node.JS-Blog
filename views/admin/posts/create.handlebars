@@ -2,53 +2,54 @@
 {{#each errors}}
 <div class="alert alert-danger">
 
-{{message}}
+    {{message}}
 </div>
 
 {{/each}}
 
 <form action="/admin/posts/create" method="post" enctype="multipart/form-data">
 
-<div class="form-group">
-    <label for="title">Title</label>
-    <input required type="text" name="title" class="form-control" id="title" placeholder="Enter Title">
-</div>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title" class="form-control" id="title" placeholder="Enter Title">
+    </div>
 
-<div class="form-group">
-    <label for="file">Upload File</label>
-    <input type="file" name="file" class="form-control" id="title" placeholder="Enter Title">
-</div>
+    <div class="form-group">
+        <label for="file">Upload File</label>
+        <input type="file" name="file" class="form-control" id="title" placeholder="Enter Title">
+    </div>
 
-<div class="form-group">
-    <label for="status">Category</label>
-    <select name="category" id="status" class="form-control">
-        {{#each categories}}
-        <option value="{{id}}">{{name}}</option>
-        {{/each}}
-    </select>
-</div>
+    <div class="form-group">
+        <label for="status">Category</label>
+        <select name="category" id="status" class="form-control">
+            {{#each categories}}
+            <option value="{{id}}">{{name}}</option>
+            {{/each}}
+        </select>
+    </div>
 
-<div class="form-group">
-    <label for="title">Status</label>
-    <select name="status" id="status" class="form-control">
-        <option value="Public">Public</option>
-        <option value="Private">Private</option>
-        <option value="Draft">Draft</option>
-    </select>
-</div>
+    <div class="form-group">
+        <label for="title">Status</label>
+        <select name="status" id="status" class="form-control">
+            <option value="Public">Public</option>
+            <option value="Private">Private</option>
+            <option value="Draft">Draft</option>
+        </select>
+    </div>
 
-<div class="form-check">
-    <label for="allowComments" class="form-check-label">
-    <input type="checkbox" name="allowComments" class="form-check-input" id="allowComments">
-    Allow Comments
-    </label>
-</div>
+    <div class="form-check">
+        <label for="allowComments" class="form-check-label">
+            <input type="checkbox" name="allowComments" class="form-check-input" id="allowComments">
+            Allow Comments
+        </label>
+    </div>
 
-<div class="form-group">
-    <label for="body">Body</label>
-    <textarea required name="body" cols="20" rows="10" class="form-control" id="body" placeholder="Enter Post Body"></textarea>
-</div>
+    <div class="form-group">
+        <label for="body">Body</label>
+        <textarea name="body" cols="20" rows="10" class="form-control" id="body"
+            placeholder="Enter Post Body"></textarea>
+    </div>
 
-<button type="submit" class="btn btn-primary">Create Post</button>
+    <button type="submit" class="btn btn-primary">Create Post</button>
 
 </form>

@@ -2,25 +2,25 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const commentSchema = new Schema({
 
-user: {
-    type: Schema.Types.ObjectId,
-    ref: 'users'
-},
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    },
 
-body:{
-    type: String,
-    required: true
-},
+    body: {
+        type: String,
+        required: true
+    },
 
-approveComment:{
-    type: Boolean,
-    default: false
-},
+    approveComment: {
+        type: Boolean,
+        default: true
+    },
 
-date: {
-    type: Date,
-    default: Date.now()
-}
+    date: {
+        type: Date,
+        default: Date.now()
+    }
 
 });
 

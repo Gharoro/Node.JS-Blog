@@ -3,8 +3,7 @@
   <div class="row">
 
     <!-- Post Content Column -->
-    <div class="col-lg-8">
-
+    <div class="col-lg-12">
       <!-- Title -->
       <h1 class="mt-4">{{post.title}}</h1>
 
@@ -13,30 +12,21 @@
         by
         <a href="#">{{post.user.firstName}}</a>
         <a href="#">{{post.category.name}}</a>
+        | On {{generateDate date 'MMM Do YYYY'}}
       </p>
 
       <hr>
 
-      <!-- Date/Time -->
-      <p>Posted on {{generateDate date 'MMM Do YYYY'}}</p>
+      <!-- Preview Image -->
+      <img class="img-fluid rounded" src="{{post.file}}" alt="">
+      <div class="card-body">
+        <!-- Post Content -->
+        <p class="lead">{{post.body}}</p>
+      </div>
 
-      <hr>
-
-    <!-- Preview Image -->
-    <img class="img-fluid rounded" src="/upload/{{post.file}}" alt="">
-
-    <hr>
-
-
-      <!-- Post Content -->
-      <p class="lead">{{post.body}}</p>
-
-      <hr>
-  {{!-- {{#if user}} --}}
-
-    {{#if post.allowComments}}
+      {{#if post.allowComments}}
       <!-- Comments Form -->
-      <div class="card my-4">
+      <div class="card my-4 col-md-6">
         <h5 class="card-header">Leave a Comment:</h5>
         <div class="card-body">
           <form action="/admin/comments" method="POST">
@@ -50,7 +40,7 @@
       </div>
 
       <!-- Single Comment -->
-      <h2>Comments</h2>
+      <h5>Comments</h5>
       <hr>
       </br>
       {{#each post.comments}}
@@ -59,34 +49,23 @@
         <div class="media-body">
           <h5 class="mt-0">{{user.firstName}}</h5>
           {{body}}
-          </div>
+        </div>
       </div>
       {{/each}}
 
       {{else}}
 
-    <h2>Comments not allowed for this post</h2>
-        <br>
-        <hr>
-    {{/if}}
-
-    {{!-- {{else}}
-
-      <p>You need to <a href="/login">login </a>to make comments</p>
+      <h2>Comments not allowed for this post</h2>
+      <br>
       <hr>
-      </br> --}}
-    {{!-- {{/if}} --}}
+      {{/if}}
 
 
-        
-
-      
-      
 
     </div>
 
     <!-- Sidebar Widgets Column -->
-    {{> home/sidebar}}
+
 
   </div>
   <!-- /.row -->

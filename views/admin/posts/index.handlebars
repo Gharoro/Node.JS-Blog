@@ -3,7 +3,6 @@
 <table class="table table-bordered">
     <thead class="card-header">
         <tr>
-            <th>Id</th>
             <th>Image</th>
             <th>Title</th>
             <th>Category</th>
@@ -17,8 +16,7 @@
     <tbody>
         {{#each posts}}
         <tr>
-            <td>{{id}}</td>
-            <td><img height="60" width="100" class="img-responsive" src="/upload/{{file}}" alt=""></td>
+            <td><img height="60" width="100" class="img-responsive" src="{{file}}" alt=""></td>
             <td>{{title}}</td>
             <td>{{category.name}}</td>
             <td>{{status}}</td>

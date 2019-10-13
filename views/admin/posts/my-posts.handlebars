@@ -4,30 +4,28 @@
 <table class="table table-bordered">
 
     <thead>
-    <tr>
+        <tr>
 
-        <th>Id</th>
-        <th>File</th>
-        <th>Title</th>
-        <th>Status</th>
-        <th>Category</th>
-        <th>Allow Comments</th>
-        <th>Date</th>
-        <th>View Post</th>
-        <th></th>
-        <th></th>
+            <th>File</th>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Category</th>
+            <th>Allow Comments</th>
+            <th>Date</th>
+            <th>View Post</th>
+            <th></th>
+            <th></th>
 
-    </tr>
+        </tr>
     </thead>
 
     <tbody>
 
-    {{#each posts}}
+        {{#each posts}}
 
         <tr>
 
-            <td>{{id}}</td>
-            <td><img height="60" width="100" class="img-responsive" src="/upload/{{file}}" alt=""></td>
+            <td><img height="60" width="100" class="img-responsive" src="{{file}}" alt=""></td>
             <td>{{title}}</td>
             <td>{{status}}</td>
             <td>{{category.name}}</td>
@@ -49,7 +47,7 @@
         </tr>
 
 
-    {{/each}}
+        {{/each}}
     </tbody>
 
 

@@ -8,34 +8,32 @@ const methodOverride = require('method-override');
 const upload = require('express-fileupload');
 const session = require('express-session');
 const flash = require('connect-flash');
-const {mongoURI} = require('./config/database');
+const { mongoURI } = require('./config/database');
 const passport = require('passport');
+require('dotenv').config();
 
 
 
 //Establishing Database Connection
 mongoose.Promise = global.Promise;
-mongoose.connect(mongoURI, {useNewUrlParser: true}).then((db)=>{
+mongoose.connect(mongoURI, { useNewUrlParser: true }).then((db) => {
     console.log('Connected to MongoDB Database')
-}).catch(error=>console.log(error));
+}).catch(error => console.log(error));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 
 //Set view Engine
-const {select, generateDate, paginate} = require('./helpers/handlebars-helpers');
-app.engine('handlebars', exphbs({defaultLayout: 'home', helpers: {select: select, generateDate: generateDate, paginate: paginate}}));
+const { select, generateDate, paginate } = require('./helpers/handlebars-helpers');
+app.engine('handlebars', exphbs({ defaultLayout: 'home', helpers: { select: select, generateDate: generateDate, paginate: paginate } }));
 app.set('view engine', 'handlebars');
 
 //Method Override
 app.use(methodOverride('_method'));
 
 //Body Parser
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-//File upload
-app.use(upload());
 
 //Use Session
 app.use(session({
@@ -52,7 +50,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //Local variables using middleware
-app.use((req, res, next)=>{
+app.use((req, res, next) => {
     res.locals.user = req.user || null;
     res.locals.Success_message = req.flash('Success_message');
     res.locals.error_message = req.flash('error_message');
@@ -78,6 +76,6 @@ app.use('/admin/comments', comments);
 
 const port = process.env.PORT || 4500;
 
-app.listen(port, ()=>{
-console.log(`listening on port ${port}`);
+app.listen(port, () => {
+    console.log(`listening on port ${port}`);
 });
